@@ -1,0 +1,171 @@
+Problem in hand: to traverse back from a location to the starting and find the minimum distance to get to that starting point.
+
+--ASSUMPTION 1: OUR STARTING LOCATION IS 0,0
+--ASSUMPTION 2: OUR ROBOT IS POINTING NORTH (X-Y AXIS: FACING NORTH))
+--AIM 1: IS TO FIND WHERE WE ARE 
+	-- THIS WILL GIVE US WHERE DOES THIS DIRECTION GO TO 
+	-- THEN WE USE THIS FIND THE SHORTEST PATH BACK TO 0,0
+		
+		1. Convert the input to an array string 
+			DirectionArray[]--> `F1,R1,B2,L1,B3 ==> ['F1','R1','B2','L1','B3']
+		
+		
+		2. DECLARATION
+			intialLocation =[] ==> (An array of size 4. first element in this array is x, the second element is y, the third element N is the direction and the fourth element is the result) ==> ['0','0','N','0']
+					
+		
+		2. FOR EVERY DIRECTION IN DIRECTION ARRAY
+		
+	CONDITIONS:
+	
+		IF(F AND N ) ==>IF(DirectionArray[i]== F && intialLocation[2] =='N' ) INCREMENT Y - AXIS ==> intialLocation[1]
+		IF(B AND N ) ==>IF(DirectionArray[i]== B && intialLocation[2] =='N' ) DECREMENT Y - AXIS ==> intialLocation[1]
+		
+		
+		IF(F AND S ) ==>IF(DirectionArray[i]== F && intialLocation[2] =='S' ) DECREMENT Y - AXIS ==> intialLocation[1]
+		IF(B AND S ) ==>IF(DirectionArray[i]== B && intialLocation[2] =='S' ) INCREMENT Y - AXIS ==> intialLocation[1]
+		
+
+		IF(F AND E ) ==>IF(DirectionArray[i]== F && intialLocation[2] =='E' ) INCREMENT X - AXIS ==> intialLocation[0]
+		IF(B AND E ) ==>IF(DirectionArray[i]== B && intialLocation[2] =='E' ) DECREMENT X - AXIS ==> intialLocation[0]
+		
+		
+		IF(F AND W ) ==>IF(DirectionArray[i]== F && intialLocation[2] =='W' ) DECREMENT X - AXIS ==> intialLocation[0]
+		IF(B AND W ) ==>IF(DirectionArray[i]== B && intialLocation[2] =='W' ) INCREMENT X - AXIS ==> intialLocation[0]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+FOR(INT I =0; I< DirectionArray.LENGTH - 1; I++)
+{
+	IF(DirectionArray[i].TOaRRAY()[0] == 'F')
+		{
+			//CHECK THE DIRECTION 
+			IF(intialLocation[2] =='N')
+				{
+					intialLocation[1] =intialLocation[1]+(((NUMBER OF STEPS) ==> DirectionArray[i].TOaRRAY()[1]))
+					intialLocation[3] ==> mod(intialLocation[0] + intialLocation[1])
+				}
+			ELSE IF(intialLocation[2] =='S')
+				{
+					intialLocation[1] =intialLocation[1]-(((NUMBER OF STEPS) ==> DirectionArray[i].TOaRRAY()[1]))
+					intialLocation[3] ==> mod(intialLocation[0] + intialLocation[1])
+				}
+			ELSE IF(intialLocation[2] =='E')
+				{
+					intialLocation[0] =intialLocation[0]+(((NUMBER OF STEPS) ==> DirectionArray[i].TOaRRAY()[1]))
+					intialLocation[3] ==> mod(intialLocation[0] + intialLocation[1])
+				}
+			ELSE IF(intialLocation[2] =='W')
+				{
+					intialLocation[0] =intialLocation[0]-(((NUMBER OF STEPS) ==> DirectionArray[i].TOaRRAY()[1]))
+					intialLocation[3] ==> mod(intialLocation[0] + intialLocation[1])
+				}
+		}
+	ELSE IF(DirectionArray[i].TOaRRAY()[0] == 'B')
+		{
+			//CHECK THE DIRECTION 
+			IF(intialLocation[2] =='N')
+				{
+					intialLocation[1] =intialLocation[1]-(((NUMBER OF STEPS) ==> DirectionArray[i].TOaRRAY()[1]))
+					intialLocation[3] ==> mod(intialLocation[0] + intialLocation[1])
+				}
+			ELSE IF(intialLocation[2] =='S')
+				{
+					intialLocation[1] =intialLocation[1]+(((NUMBER OF STEPS) ==> DirectionArray[i].TOaRRAY()[1]))
+					intialLocation[3] ==> mod(intialLocation[0] + intialLocation[1])
+				}
+			ELSE IF(intialLocation[2] =='E')
+				{
+					intialLocation[0] =intialLocation[0]-(((NUMBER OF STEPS) ==> DirectionArray[i].TOaRRAY()[1]))
+					intialLocation[3] ==> mod(intialLocation[0] + intialLocation[1]) 
+				}
+			ELSE IF(intialLocation[2] =='W')
+				{
+					intialLocation[0] =intialLocation[0]+(((NUMBER OF STEPS) ==> DirectionArray[i].TOaRRAY()[1]))
+					intialLocation[3] ==> mod(intialLocation[0] + intialLocation[1])
+				}
+		}
+	ELSE IF(DirectionArray[i].TOaRRAY()[0] == 'R')
+		{
+			//CHECK THE DIRECTION 
+			IF(intialLocation[2] =='N')
+				{
+					intialLocation[2] ='E'
+				}
+			ELSE IF(intialLocation[2] =='S')
+				{
+					intialLocation[2] ='W'
+				}
+			ELSE IF(intialLocation[2] =='E')
+				{
+					intialLocation[2] ='S'
+				}
+			ELSE IF(intialLocation[2] =='W')
+				{
+					intialLocation[2] ='N'
+				}
+		}
+	ELSE IF(DirectionArray[i].TOaRRAY()[0] == 'L')
+		{
+			//CHECK THE DIRECTION 
+			IF(intialLocation[2] =='N')
+				{
+					intialLocation[2] ='W'
+				}
+			ELSE IF(intialLocation[2] =='S')
+				{
+					intialLocation[2] ='E'
+				}
+			ELSE IF(intialLocation[2] =='E')
+				{
+					intialLocation[2] ='N'
+				}
+			ELSE IF(intialLocation[2] =='W')
+				{
+					intialLocation[2] ='S'
+				}
+		}
+}
+FINAL RESULT IS THE MOD OF X, Y ==> intialLocation[0,1] ==> which is stored in intialLocation[3] 
+RESULT = intialLocation[3]
+
+-------------------------------------------------------------------------------------------------------------------------------------------EXAMPLE: EXECUTION 
+		2A. i=0 : F1
+				--MOVE FORWARD BY 1 STEP
+				-->WE ARE HERE (0,1) facing north ==> F1 ADD 1 TO intialLocation[1]==>
+				(CONVERT THIS TO STRING (CONVERFT STRING TO INT AND PERFORM ==> 0+1)) ==> 
+				RESULT : intialLocation['0','1','N','0']
+				intialLocation[3] ==> intialLocation[0] + intialLocation[1]==>
+				mod((CONVERT THIS TO STRING (CONVERFT STRING TO INT AND PERFORM ==> 0+1)))
+				RESULT : intialLocation['0','1','N','1']
+---------------------------
+			i=1 :R1
+				-->ROTATE RIGHT BY 1 (90 DEGRESS)
+	  			-->WE ARE HERE (0,1) rotate robot towards right by one 90 ==> 
+				R1 SUBSTITUTE N BY E TO intialLocation[2] ==> (E) ==>
+				RESULT: intialLocation['0','1','E','1']
+				intialLocation[3] ==> intialLocation[0] + intialLocation[1]==>
+				mod((CONVERT THIS TO STRING (CONVERFT STRING TO INT AND PERFORM ==> 0+1)))
+				RESULT : intialLocation['0','1','E','1']
+---------------------------				
+			i=2 : B2							
+				-->WE ARE HERE (-2,1)  ==> B2 ==> intialLocation[0]  ==> 
+				CONVERT THIS TO STRING (CONVERFT STRING TO INT AND PERFORM ==> 0-2)) ==> 
+				RESULT : intialLocation['-2','1','E']
+				intialLocation[3] ==> intialLocation[0] + intialLocation[1]==> 
+				mod((CONVERT THIS TO STRING (CONVERFT STRING TO INT AND PERFORM ==> 2+1))) 
+				RESULT : intialLocation['-2','1','E','3']
+-----------------------						
+			i=2 : L1
+				-->ROTATE LEFT BY 1 (90 DEGRESS)					
+		  		-->WE ARE HERE (-2,1) ==> L1 ==> intialLocation[2] ==>  
+		  		SUBSTITUTE E BY N TO intialLocation[2]  ==> RESULT : intialLocation['-2','1','N']
+				intialLocation[3] ==> intialLocation[0] + intialLocation[1]==> 
+				mod((CONVERT THIS TO STRING (CONVERFT STRING TO INT AND PERFORM ==> 2+1))) 
+				RESULT : intialLocation['-2','1','N','3']								
+---------------------------										
+			i=2 : B3
+ 				-->WE ARE HERE (-2,-2) ==> B3 ==> intialLocation[1] ==>  CHECK intialLocation[1] ==> 
+ 				CONVERT THIS TO STRING (CONVERT STRING TO INT AND PERFORM ==> -2)) ==> 
+ 				RESULT : intialLocation['-2','-2','N']
+				intialLocation[3] ==> intialLocation[0] + intialLocation[1]==> 
+				mod((CONVERT THIS TO STRING (CONVERFT STRING TO INT AND PERFORM ==> -2-2))) 
+				RESULT : intialLocation['-2','-2','N','4']
