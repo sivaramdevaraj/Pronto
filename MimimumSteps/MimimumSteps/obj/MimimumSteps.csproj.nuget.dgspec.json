@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\Pronto\\MimimumSteps\\MimimumSteps\\MimimumSteps.csproj": {}
+    "C:\\Users\\DELL\\Desktop\\FirstProject\\MimimumSteps\\MimimumSteps\\MimimumSteps.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\Pronto\\MimimumSteps\\MimimumSteps\\MimimumSteps.csproj": {
+    "C:\\Users\\DELL\\Desktop\\FirstProject\\MimimumSteps\\MimimumSteps\\MimimumSteps.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\Pronto\\MimimumSteps\\MimimumSteps\\MimimumSteps.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\FirstProject\\MimimumSteps\\MimimumSteps\\MimimumSteps.csproj",
         "projectName": "MimimumSteps",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\Pronto\\MimimumSteps\\MimimumSteps\\MimimumSteps.csproj",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\FirstProject\\MimimumSteps\\MimimumSteps\\MimimumSteps.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\Pronto\\MimimumSteps\\MimimumSteps\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\FirstProject\\MimimumSteps\\MimimumSteps\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
